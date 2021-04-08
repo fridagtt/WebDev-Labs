@@ -1,0 +1,71 @@
+h1 {
+  font-family: lato;
+  margin: 16px
+}
+
+label {
+  font-size: 1.4rem;
+  font-family: lato;
+}
+
+input {
+  border: 1px solid;
+  border-radius: 2px;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.secondaryContainer {
+  display: flex;
+  margin: 16px
+}
+
+.tertiaryContainer {
+  margin: 24px;
+}
+
+.itemContainer {
+  margin-top: 12px;
+}
+
+.modifyLabel {
+  margin-right: 8px;
+}
+
+.productLabel {
+  font-size: 1rem;
+  font-family: lato;
+  margin-right: 16px;
+}
+
+.button {
+  border: 1px solid;
+  border-radius: 8px;
+  background-color: white;
+  padding: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.addButton {
+  color: green;
+  border-color: #4CAF50;
+}
+
+.addButton:hover {
+  color: white;
+  background-color: #4CAF50;
+}
+
+.removeButton {
+  border-color: #f44336;
+  color: red;
+}
+
+.removeButton:hover {
+  color: white;
+  background-color: #f44336;
+}

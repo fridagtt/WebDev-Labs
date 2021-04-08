@@ -1,0 +1,27 @@
+body {
+  padding: 24px
+}
+
+h1 {
+  margin: 16px
+}
+
+img {
+  height: auto;
+  width: 50%;
+  margin: auto;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.secondaryContainer {
+  display: flex;
+  margin: 16px;
+}
+
+.hidden {
+  display:none;
+}

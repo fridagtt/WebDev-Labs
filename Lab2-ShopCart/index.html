@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping cart</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="./productsManipulation.js"></script>
+</head>
+<body>
+
+  <div class='mainContainer'>
+    <h1> Shopping Cart </h1>
+
+    <div class='secondaryContainer'>
+      <label class='modifyLabel'>Product name:</label>
+      <input type='text' id='productName' name='productName'>
+    </div>
+    <div class='secondaryContainer'>
+      <label class='modifyLabel'>Price:</label>
+      <input type='text' id='productPrice' name='productPrice'>
+    </div>
+    <div class='secondaryContainer'>
+      <button class='addButton button' onClick="addProduct(document.getElementById('productName').value,document.getElementById('productPrice').value)"> Add product</button>
+    </div>
+    <div class='tertiaryContainer'>
+      <ul id='cartList'></ul>
+    </div>
+    <div class='secondaryContainer'>
+      <label class='modifyLabel'>Total:</label>
+      <label id='totalAmount'>$ 0.00</label>
+    </div>
+  </div>
+</body>
+</html>

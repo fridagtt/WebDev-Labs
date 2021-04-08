@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokemons API</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+  <div class='mainContainer'>
+
+    <div id=warning></div>
+
+    <h1>Information about Pokemons</h1>
+
+    <form id='pokemonForm' style='width:30%'>
+      <div class='secondaryContainer input-group'>
+        <span class="input-group-text" id="inputGroup-sizing-sm">Pokemon's name</span>
+        <input type="text" id='pokemonName' class="form-control" placeholder="ditto">
+      </div>
+      <input type="submit" class="btn btn-primary" style='margin:16px' value="Add Pokemon">
+    </form>
+
+    <!--
+      <span class="input-group-text" id="inputGroup-sizing-sm">Pokemon's name</span>
+      <input type="text" id='pokemonName' class="form-control" placeholder="ditto">
+    <div style='margin: 16px'>
+      <button class="btn btn-primary" onClick="searchPokemon(document.getElementById('pokemonName').value)">Add Pokemon</button>
+    </div>
+    -->
+
+    <h2 style='margin: 16px'>List of Pokemons:</h1>
+    <div class="row" id='pokemonList'></div>
+
+  </div>
+
+  <script type="text/javascript" src="./pokemonApi.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
