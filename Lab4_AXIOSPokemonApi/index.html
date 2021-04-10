@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pokemons API</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class='mainContainer'>
+
+      <div id=warning></div>
+
+      <h1>Information about Pokemons</h1>
+
+      <form id='pokemonForm' style='width:30%'>
+        <div class='secondaryContainer input-group'>
+          <span class="input-group-text" id="inputGroup-sizing-sm">Pokemon's name</span>
+          <input type="text" id='pokemonName' class="form-control" placeholder="ditto">
+        </div>
+        <input type="submit" class="btn btn-primary" style='margin:16px' value="Add Pokemon">
+      </form>
+
+      <div class='secondaryContainer' style='margin: 0'>
+        <h3 style='margin: 16px'>Total Weight:</h3>
+        <h3 style='margin: 16px' id='totalWeight'>0.00</h3>
+      </div>
+
+      <h2 style='margin: 16px'>List of Pokemons:</h2>
+
+      <div class="row" id='pokemonList'></div>
+
+    </div>
+
+    <script type="text/javascript" src="./pokemonApi.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+  </body>
+</html>

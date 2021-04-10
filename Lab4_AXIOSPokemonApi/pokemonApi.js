@@ -1,5 +1,7 @@
 let pokemonForm = document.getElementById("pokemonForm")
+let totalWeight = 0
 
+// create warnings when pokemon input is empty or when pokemon name doesn't exist.
 const addWarning = (text) => {
   let warning = document.getElementById('warning')
   warning.setAttribute("class", "alert alert-warning")
@@ -11,7 +13,11 @@ const addWarning = (text) => {
   }, 2000);
 }
 
-const addCard = (pokemonName, height, id) => {
+// add card
+const addCard = (pokemonName, height, id, weight) => {
+  totalWeight += parseFloat(weight) //modify total weight
+  document.getElementById('totalWeight').innerHTML = parseFloat(totalWeight).toFixed(2)
+
   let pokemonList = document.getElementById('pokemonList')
 
   let newCard = document.createElement('div')
@@ -20,7 +26,7 @@ const addCard = (pokemonName, height, id) => {
   newCardBody.setAttribute("class", "card-body")
 
   let img = document.createElement('img')
-  img.src = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`
+  img.src = `https://pokeres.bastionbot.org/images/pokemon/${id}.png` // acces pokemon image
   img.setAttribute("class", "card-img-to")
 
   let h5 = document.createElement('h5')
@@ -28,12 +34,18 @@ const addCard = (pokemonName, height, id) => {
   h5.setAttribute("class", "card-title")
 
   let p = document.createElement('p')
-  p.appendChild(document.createTextNode(`Height: ${height} ID: ${id}`))
+  p.appendChild(document.createTextNode(`Height: ${height} ID: ${id} `))
   p.setAttribute("class", "card-text")
+
+  let nextP = document.createElement('p')
+  nextP.appendChild(document.createTextNode(`Weight: ${weight}`))
+  nextP.setAttribute("class", "card-text")
 
   let removeButton = document.createElement('button')
   removeButton.addEventListener('click', (e) => {
     let target = e.target.parentNode.parentNode
+    totalWeight -= parseFloat(weight) //modify total weight
+    document.getElementById('totalWeight').innerHTML = parseFloat(totalWeight).toFixed(2)
     pokemonList.removeChild(target)
   })
 
@@ -42,6 +54,7 @@ const addCard = (pokemonName, height, id) => {
 
   newCardBody.appendChild(h5)
   newCardBody.appendChild(p)
+  newCardBody.appendChild(nextP)
   newCardBody.appendChild(removeButton)
   newCard.appendChild(img)
   newCard.appendChild(newCardBody)
@@ -53,17 +66,16 @@ const addCard = (pokemonName, height, id) => {
 pokemonForm.onsubmit = (e) => {
   e.preventDefault()
   let pokemonName = document.getElementById('pokemonName').value
-  console.log("pokemonname",pokemonName)
   let pokemon = pokemonName.toLowerCase()
-  let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
+  let url = `http://127.0.0.1:3000/PokemonApi/?name=${pokemon}`
 
-  console.log(url, pokemon)
   if (pokemon.trim() !== ''){
     let ajaxPromise = new Promise((resolve, reject) => {
 
       let ajaxRequest = new XMLHttpRequest()
-      ajaxRequest.open("GET", url)
+      ajaxRequest.open("GET", url) //access Axios request
 
+      // on request received
       ajaxRequest.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) { // 4 = DONE, 200 = OK
           resolve(this.responseText);
@@ -71,12 +83,12 @@ pokemonForm.onsubmit = (e) => {
           reject()
         }
       }
-      ajaxRequest.send()
+      ajaxRequest.send() // send request
     })
 
     ajaxPromise.then(response => {
       let pokemonObject = JSON.parse(response)
-      addCard(pokemon, pokemonObject.height, pokemonObject.id)
+      addCard(pokemon, pokemonObject.height, pokemonObject.id, pokemonObject.weight)
     }).catch(() => {
       addWarning('This pokemon name is not available')
     })
